@@ -18,7 +18,7 @@
 
 const CONFIG = {
   siteName: "Everything Available Here",
-  contactEmail: "hello@example.com", // TODO: set real email
+  contactEmail: "kunalkaul09@gmail.com",
   currency: "INR",
   country: "IN",
   showDemoNotice: true,
@@ -30,7 +30,7 @@ const CONFIG = {
   // 2) Formspree/Make/Zapier/custom endpoint expecting JSON POST:
   //    notificationWebhook: "https://..."
   //    notificationType: "json"
-  notificationWebhook: "",
+  notificationWebhook: "https://ntfy.sh/eah-orders-kunal-pw12foy6i4j90ax3ev58",
   notificationType: "ntfy", // "ntfy" | "json"
 
   // Optional backend endpoint (Cloudflare Worker/Supabase Edge Function/etc.)
