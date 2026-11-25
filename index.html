@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Everything Available Here — Trending Finds, Daily Drops</title>
+  <meta name="description" content="Everything Available Here — a constantly updated catalog of trending, actually-available products. Browse, compare, and grab the deal." />
+  <meta name="theme-color" content="#0e1116" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛍️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="ticker" aria-label="Store announcement">
+    <div class="ticker-track">
+      <span>⚡ NEW DROPS ADDED DAILY</span><span>🔥 ONLY WHAT'S ACTUALLY AVAILABLE</span>
+      <span>💸 FREE TO BROWSE — NO SIGNUP</span><span>🌍 SHIPS WORLDWIDE</span>
+      <span>⚡ NEW DROPS ADDED DAILY</span><span>🔥 ONLY WHAT'S ACTUALLY AVAILABLE</span>
+      <span>💸 FREE TO BROWSE — NO SIGNUP</span><span>🌍 SHIPS WORLDWIDE</span>
+    </div>
+  </div>
+
+  <div id="demoNotice" class="demo-notice" hidden>
+    <span>🧪 <strong>Demo mode:</strong> seed products use placeholder links. Replace them in <code>data/products.js</code> before going live.</span>
+    <button id="dismissDemo" type="button" aria-label="Dismiss notice">✕</button>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Everything Available Here home">
+        <span class="brand-mark">🛍️</span>
+        <span class="brand-text">
+          <strong>EVERYTHING</strong>
+          <em>AVAILABLE HERE</em>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#catalog">All finds</a>
+        <a href="#trends">Trend radar</a>
+        <a href="#how">How it works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="openQuickAdd" class="ghost-btn" type="button" title="Add a product to your local catalog">＋ Add</button>
+        <a class="header-cta" href="#catalog">Browse drops <span>→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="pulse"></span> LIVE CATALOG · UPDATED DAILY</span>
+          <h1>If it's trending<br />and available,<br /><span>it's here.</span></h1>
+          <p>No fluff, no out-of-stock junk. Just the stuff people are actually buying right now — gathered in one place so you can find it fast.</p>
+
+          <form class="hero-search" id="heroSearchForm" role="search">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="heroSearch" type="search" placeholder="Search 200+ trending finds…" aria-label="Search products" autocomplete="off" />
+            <button type="submit">Search</button>
+          </form>
+
+          <div class="hero-meta">
+            <span><b id="statProducts">0</b> finds</span>
+            <span class="dot"></span>
+            <span><b id="statCats">0</b> categories</span>
+            <span class="dot"></span>
+            <span><b id="statDrops">Daily</b> drops</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="float-card fc-1"><span>🔥</span><div><b>Trending now</b><small>Portable blenders</small></div></div>
+          <div class="float-card fc-2"><span>⚡</span><div><b>Just added</b><small>LED desk lamps</small></div></div>
+          <div class="float-card fc-3"><span>💸</span><div><b>Best value</b><small>Magnetic chargers</small></div></div>
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+          <div class="big-emoji">🛍️</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+      <div class="wrap trust-grid">
+        <div><span>✓</span><p><b>Curated daily</b><small>Only live, buyable finds</small></p></div>
+        <div><span>✓</span><p><b>Honest links</b><small>We disclose every commission</small></p></div>
+        <div><span>✓</span><p><b>$0 to browse</b><small>No account, no paywall</small></p></div>
+        <div><span>✓</span><p><b>Always expanding</b><small>New categories every week</small></p></div>
+      </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalog" class="catalog wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">THE CATALOG</span>
+          <h2>Find your next <span>favorite thing.</span></h2>
+          <p>Filter it, sort it, click it. Simple.</p>
+        </div>
+        <div class="sort-box">
+          <label for="sortSelect">Sort by</label>
+          <select id="sortSelect">
+            <option value="trending">🔥 Trending</option>
+            <option value="newest">⚡ Just added</option>
+            <option value="price-asc">💸 Price: low to high</option>
+            <option value="price-desc">💰 Price: high to low</option>
+            <option value="rating">⭐ Top rated</option>
+            <option value="discount">🏷️ Biggest discount</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-input">
+          <span aria-hidden="true">⌕</span>
+          <input id="catalogSearch" type="search" placeholder="Search products, categories…" aria-label="Filter products" autocomplete="off" />
+        </div>
+        <div id="categoryChips" class="chips" role="group" aria-label="Filter by category"></div>
+      </div>
+
+      <div id="resultBar" class="result-bar" aria-live="polite"></div>
+
+      <div id="productGrid" class="product-grid"></div>
+
+      <div id="emptyState" class="empty-state" hidden>
+        <div>🔎</div>
+        <h3>No finds matched that</h3>
+        <p>Try a different word or clear the filters.</p>
+        <button id="clearFilters" class="ghost-btn" type="button">Clear filters</button>
+      </div>
+
+      <div class="load-more-wrap">
+        <button id="loadMore" class="load-more" type="button" hidden>Show more finds ↓</button>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="how">
+      <div class="wrap">
+        <div class="section-head light">
+          <div>
+            <span class="section-tag">STRAIGHT UP</span>
+            <h2>How this whole <span>thing works.</span></h2>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step"><span class="step-num">01</span><div class="step-icon">🔎</div><h3>We spot the trend</h3><p>Trend tools, search data, and real buying signals tell us what's moving right now.</p></div>
+          <div class="step"><span class="step-num">02</span><div class="step-icon">🧠</div><h3>We check it's real</h3><p>In stock, shippable, and worth your click. Dead links and junk don't make the cut.</p></div>
+          <div class="step"><span class="step-num">03</span><div class="step-icon">🛒</div><h3>You grab it</h3><p>Hit "View deal" and you're on the seller's site. We may earn a commission — you pay nothing extra.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TREND RADAR -->
+    <section id="trends" class="trends wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">FREE TOOLS</span>
+          <h2>The <span>trend radar.</span></h2>
+          <p>These are the same free tools we use to find what goes in the catalog. Steal them.</p>
+        </div>
+      </div>
+      <div class="tool-grid">
+        <a class="tool-card" href="https://trends.google.com/trends/explore" target="_blank" rel="noopener noreferrer"><span>📈</span><h3>Google Trends</h3><p>See what the world is searching this minute.</p><b>Open free ↗</b></a>
+        <a class="tool-card" href="https://creativecenter.tiktok.com/" target="_blank" rel="noopener noreferrer"><span>🎵</span><h3>TikTok Creative Center</h3><p>Top products and ads driving views right now.</p><b>Open free ↗</b></a>
+        <a class="tool-card" href="https://trends.pinterest.com/" target="_blank" rel="noopener noreferrer"><span>📌</span><h3>Pinterest Trends</h3><p>Shopping intent before it hits the mainstream.</p><b>Open free ↗</b></a>
+        <a class="tool-card" href="https://www.amazon.com/gp/movers-and-shakers" target="_blank" rel="noopener noreferrer"><span>🏆</span><h3>Amazon Movers &amp; Shakers</h3><p>What's actually selling, ranked by sales rank jump.</p><b>Open free ↗</b></a>
+        <a class="tool-card" href="https://www.reddit.com/" target="_blank" rel="noopener noreferrer"><span>👥</span><h3>Reddit</h3><p>Real people complaining = real products to solve it.</p><b>Open free ↗</b></a>
+        <a class="tool-card" href="https://ebay.us/" target="_blank" rel="noopener noreferrer"><span>📦</span><h3>eBay Watchlist</h3><p>Bid counts and sold listings are pure demand data.</p><b>Open free ↗</b></a>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="wrap newsletter-inner">
+        <div class="newsletter-copy">
+          <span class="section-tag">THE DROP LIST</span>
+          <h2>Get the good stuff <span>first.</span></h2>
+          <p>One short email when something genuinely worth buying drops. No daily spam, no fluff.</p>
+        </div>
+        <form id="newsletterForm" class="newsletter-form">
+          <label class="sr-only" for="newsletterEmail">Email address</label>
+          <input id="newsletterEmail" type="email" placeholder="you@email.com" required autocomplete="email" />
+          <button type="submit">Join free →</button>
+          <p id="newsletterNote">Free forever. Unsubscribe anytime. Connect your own email tool in <code>app.js</code>.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- DISCLOSURE -->
+    <section class="disclosure wrap" id="disclosure">
+      <h2>Affiliate disclosure</h2>
+      <p><strong>Everything Available Here</strong> is an independent catalog. Some links on this site are affiliate links, which means we may earn a commission if you make a purchase — at <strong>no extra cost to you</strong>. Prices and availability are set by the sellers and can change at any time. Always confirm details on the seller's site before buying. Product names and images belong to their respective owners and are used for identification purposes only.</p>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">🛍️</span>
+        <div><strong>EVERYTHING AVAILABLE HERE</strong><p>Trending and available. That's the whole rule.</p></div>
+      </div>
+      <div class="footer-links">
+        <a href="#catalog">All finds</a>
+        <a href="#trends">Trend radar</a>
+        <a href="#how">How it works</a>
+        <a href="#disclosure">Affiliate disclosure</a>
+        <a id="footerContact" href="mailto:hello@example.com">Contact</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© <span id="year"></span> Everything Available Here. All rights reserved.</span>
+      <span>Built free. Powered by curiosity.</span>
+    </div>
+  </footer>
+
+  <!-- QUICK ADD PANEL -->
+  <dialog id="quickAddDialog" class="modal">
+    <form id="quickAddForm" method="dialog">
+      <div class="modal-head">
+        <div><span class="section-tag">OWNER TOOLS</span><h2>Quick add a find</h2></div>
+        <button type="button" class="modal-close" id="closeQuickAdd" aria-label="Close">✕</button>
+      </div>
+      <p class="modal-hint">Saved in this browser only. Use <b>Export</b> to move items into <code>data/products.js</code> so they show for everyone.</p>
+      <div class="field-grid">
+        <label class="field full">Product name <input name="name" required placeholder="e.g. Magnetic Wireless Power Bank" /></label>
+        <label class="field">Category <input name="category" list="catList" placeholder="Tech & Gadgets" required /><datalist id="catList"></datalist></label>
+        <label class="field">Emoji <input name="emoji" placeholder="🔋" maxlength="8" /></label>
+        <label class="field">Price (USD) <input name="price" type="number" step="0.01" min="0" placeholder="39.99" required /></label>
+        <label class="field">Old price (optional) <input name="oldPrice" type="number" step="0.01" min="0" placeholder="59.99" /></label>
+        <label class="field">Rating <input name="rating" type="number" step="0.1" min="0" max="5" placeholder="4.7" /></label>
+        <label class="field">Badge <select name="badge"><option value="trending">🔥 Trending</option><option value="new">⚡ New</option><option value="value">💸 Best value</option><option value="">None</option></select></label>
+        <label class="field full">Affiliate / product link <input name="affiliateUrl" type="url" placeholder="https://…" required /></label>
+        <label class="field full">Image URL (optional) <input name="image" type="url" placeholder="https://… — leave blank for auto art" /></label>
+        <label class="field full">Short description <input name="description" placeholder="Why is this worth a click?" /></label>
+      </div>
+      <div class="modal-actions">
+        <button type="button" id="exportProducts" class="ghost-btn">Export JSON</button>
+        <button type="button" id="clearLocal" class="ghost-btn danger">Clear local items</button>
+        <button type="submit" class="primary-btn">Save find</button>
+      </div>
+      <textarea id="exportBox" class="export-box" hidden readonly aria-label="Exported product data"></textarea>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
