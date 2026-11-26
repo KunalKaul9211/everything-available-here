@@ -1,0 +1,20 @@
+name = "eah-backend"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+# Free tier is enough for MVP.
+# After deploy, set secrets (do NOT commit them):
+#   wrangler secret put ADMIN_TOKEN
+#   wrangler secret put NTFY_TOPIC   (optional, if you want backend notifications)
+
+[vars]
+ALLOWED_ORIGIN = "https://kunalkaul9211.github.io"
+SITE_NAME = "Everything Available Here"
+OWNER_EMAIL = "kunalkaul09@gmail.com"
+DEFAULT_CURRENCY = "INR"
+DEFAULT_COUNTRY = "IN"
+
+[[kv_namespaces]]
+binding = "ORDERS_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"

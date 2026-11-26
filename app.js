@@ -35,6 +35,7 @@ const CONFIG = {
 
   // Optional backend endpoint (Cloudflare Worker/Supabase Edge Function/etc.)
   // Expected to: validate order, create payment session, route to cheapest verified supplier, fulfill.
+  // Example after deploy: "https://eah-backend.<your-subdomain>.workers.dev/api/orders"
   orderApiEndpoint: "",
 
   perPage: 12
