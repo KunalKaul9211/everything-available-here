@@ -70,7 +70,9 @@ function normalize(p) {
   const mrp = Number(p.mrp ?? p.oldPrice ?? 0);
   const supplierCost = Number(p.supplierCost ?? 0);
   const shipping = Number(p.shipping ?? 0);
-  return { ...p, sellPrice, mrp, supplierCost, shipping, stock: Number(p.stock ?? 99), supplier: p.supplier || { name: "Unassigned", type: "manual", sku: "", autoFulfill: false } };
+  const supplier = { ...(p.supplier || { name: "Unassigned", type: "manual", sku: "", autoFulfill: false }) };
+  if (!supplier.productUrl && p.affiliateUrl) supplier.productUrl = p.affiliateUrl;
+  return { ...p, sellPrice, mrp, supplierCost, shipping, stock: Number(p.stock ?? 99), supplier };
 }
 
 function margin(p) { return p.sellPrice - p.supplierCost - p.shipping; }
@@ -192,7 +194,11 @@ function cardHtml(p) {
   const off = discountPct(p);
   const badgeMap = { trending:"🔥 Trending", new:"⚡ New", value:"💸 Best value" };
   const badge = p.badge && badgeMap[p.badge] ? `<span class="badge ${esc(p.badge)}">${badgeMap[p.badge]}</span>` : "";
+  const isAffiliate = p.supplier?.type === "affiliate" && /^https?:\/\//i.test(p.supplier?.productUrl || "");
   const m = margin(p);
+  const action = isAffiliate
+    ? `<a class="deal-btn" href="${esc(p.supplier.productUrl)}" target="_blank" rel="sponsored nofollow noopener noreferrer">Get deal at ${esc(p.supplier.name||"partner")} ↗</a>`
+    : `<button class="deal-btn" type="button" data-add="${esc(p.id)}">Add to cart</button>`;
   return `<article class="card">
     <div class="card-media">
       <img src="${img}" alt="${esc(p.name)}" loading="lazy" data-fallback="${esc(fallback)}" onerror="this.onerror=null;this.src=this.dataset.fallback" />
@@ -202,9 +208,9 @@ function cardHtml(p) {
       <div class="card-cat">${esc(p.category)}</div>
       <h3>${esc(p.name)}</h3>
       <p class="card-desc">${esc(p.description||"")}</p>
-      <div class="meta-row"><span>Supplier: ${esc(p.supplier?.name||"TBD")}</span><span>Margin: ${money(m)}</span></div>
+      <div class="meta-row"><span>${isAffiliate ? "Partner" : "Supplier"}: ${esc(p.supplier?.name||"TBD")}</span><span>${isAffiliate ? "Commission via partner" : `Margin: ${money(m)}`}</span></div>
       <div class="price-row"><span class="price">${money(p.sellPrice)}</span>${p.mrp?`<s>${money(p.mrp)}</s>`:""}</div>
-      <button class="deal-btn" type="button" data-add="${esc(p.id)}">Add to cart</button>
+      ${action}
     </div>
   </article>`;
 }
