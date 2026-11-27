@@ -92,7 +92,7 @@ const reviewBody = `<div class="review-layout"><div class="notice-card" style="c
 write(path.join(root,'reviews/index.html'), head('Reviews | Everything Available Here','Read and submit reviews for Everything Available Here.',`${base}/reviews/`) + nav() + pageWrap('Customer <span>reviews</span>.','Honest feedback helps shoppers trust the site.',reviewBody) + footer());
 
 // Sitemap
-const urls = ['', '/categories/', '/areas/', '/reviews/', '/about/', '/contact/', '/privacy/', '/terms/', ...categories.map(c=>`/category/${catInfo[c].slug}/`), ...areas.map(a=>`/areas/${a.slug}/`)];
-const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`  <url><loc>${base}${u}</loc><changefreq>weekly</changefreq><priority>${u===''?'1.0':'0.7'}</priority></url>`).join('\n')}\n</urlset>\n`;
+const urls = ['/', '/categories/', '/areas/', '/reviews/', '/about/', '/contact/', '/privacy/', '/terms/', ...categories.map(c=>`/category/${catInfo[c].slug}/`), ...areas.map(a=>`/areas/${a.slug}/`)];
+const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`  <url><loc>${base}${u}</loc><changefreq>weekly</changefreq><priority>${u==='/'?'1.0':'0.7'}</priority></url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(root,'sitemap.xml'), xml);
 console.log({pages: urls.length, categories: categories.length});
