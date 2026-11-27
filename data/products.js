@@ -52,6 +52,25 @@ window.EAH_PRODUCTS = [
   P("fw-002","Women's Casual Kurti","Fashion - Women","👗",899,1799,"womens casual kurti","trending","Comfortable kurti for daily and office wear."),
   P("fw-003","Women's Sunglasses","Fashion - Women","🕶️",699,1499,"womens sunglasses uv protection","new","UV-protected sunglasses for style and comfort."),
   P("fw-004","Women's Sneakers","Fashion - Women","👟",1399,2799,"womens sneakers","value","Lightweight sneakers for daily use."),
+  {
+    id: "fw-005",
+    name: "Women's Embroidered Kurti with Floral Design",
+    category: "Fashion - Women",
+    emoji: "👗",
+    sellPrice: 0,
+    mrp: 0,
+    supplierCost: 0,
+    shipping: 0,
+    currency: "INR",
+    rating: 4.3,
+    reviews: 0,
+    badge: "new",
+    image: "",
+    stock: 99,
+    supplier: { name: "Amazon", type: "affiliate", sku: "FW-005", productUrl: "https://www.amazon.in/dp/B0H8FNJKYH?tag=everythinObb6-21", autoFulfill: false },
+    description: "Embroidered floral kurti for everyday and casual wear. Check size, fabric, and current price on Amazon before ordering.",
+    added: "2026-11-28"
+  },
 
   // Beauty & Personal Care
   P("be-001","LED Makeup Mirror","Beauty & Personal Care","🪞",1199,1999,"led makeup mirror","trending","Bright mirror for grooming and makeup."),
