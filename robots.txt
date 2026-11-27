@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://kunalkaul9211.github.io/everything-available-here/sitemap.xml

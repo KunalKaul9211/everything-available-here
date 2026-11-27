@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e1116"/><stop offset="1" stop-color="#1f2937"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="980" cy="120" r="220" fill="#ff4d17" opacity="0.18"/>
+  <text x="80" y="240" fill="#ffffff" font-size="72" font-family="Arial, sans-serif" font-weight="700">Everything Available Here</text>
+  <text x="80" y="320" fill="#ffb59d" font-size="36" font-family="Arial, sans-serif">Trending deals across every category</text>
+  <text x="80" y="390" fill="#d1d5db" font-size="28" font-family="Arial, sans-serif">Electronics • Fashion • Home • Beauty • Fitness • Books • Auto</text>
+  <text x="80" y="520" fill="#9ca3af" font-size="24" font-family="Arial, sans-serif">kunalkaul9211.github.io/everything-available-here</text>
+</svg>
