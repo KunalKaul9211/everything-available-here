@@ -15,7 +15,7 @@ const catInfo = Object.fromEntries(categories.map(c => [c, {slug: slug(c), items
 
 const nav = (active='') => `
 <header class="site-header"><div class="wrap header-inner">
-  <a class="brand" href="${base}/"><span class="brand-mark">🛍️</span><span class="brand-text"><strong>EVERYTHING</strong><em>AVAILABLE HERE</em></span></a>
+  <a class="brand" href="${base}/"><img class="brand-mark" src="${base}/assets/logo.svg" alt="" width="42" height="42" /><span class="brand-text"><strong>EVERYTHING</strong><em>AVAILABLE HERE</em></span></a>
   <button class="ghost-btn nav-toggle" data-nav-toggle aria-label="Open menu">Menu</button>
   <nav class="nav" data-nav aria-label="Main navigation">
     <a href="${base}/" data-path="/">Home</a>
@@ -35,14 +35,14 @@ const head = (title, desc, canonical, extra='') => `<!DOCTYPE html><html lang="e
 <meta property="og:url" content="${canonical}"><meta property="og:image" content="${base}/assets/og.svg">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${base}/assets/og.svg">
 <link rel="canonical" href="${canonical}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛍️</text></svg>">
+<link rel="icon" href="${base}/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${base}/styles.css">${extra}
 </head><body>`;
 
 const footer = () => `<footer class="site-footer"><div class="wrap footer-inner">
-  <div class="footer-brand"><span class="brand-mark">🛍️</span><div><strong>EVERYTHING AVAILABLE HERE</strong><p>Curated deals across every category.</p></div></div>
+  <div class="footer-brand"><img class="brand-mark" src="${base}/assets/logo.svg" alt="" width="42" height="42" loading="lazy" /><div><strong>EVERYTHING AVAILABLE HERE</strong><p>Curated deals across every category.</p></div></div>
   <div class="footer-links"><a href="${base}/categories/">Categories</a><a href="${base}/areas/">Areas</a><a href="${base}/reviews/">Reviews</a><a href="${base}/about/">About</a><a href="${base}/contact/">Contact</a><a href="${base}/privacy/">Privacy</a><a href="${base}/terms/">Terms</a><a href="${base}/sitemap.xml">Sitemap</a></div>
 </div><div class="wrap footer-bottom"><span>© <span data-year></span> Everything Available Here.</span><span>As an Amazon Associate I earn from qualifying purchases.</span></div></footer><script src="${base}/assets/site.js" defer></script></body></html>`;
 
