@@ -54,7 +54,8 @@ img { display: block; max-width: 100%; }
 .site-header { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 .header-inner { height: 72px; display: flex; align-items: center; gap: 28px; }
 .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.brand-mark { width: 42px; height: 42px; display: grid; place-items: center; background: var(--ink); border-radius: 12px; font-size: 22px; }
+.brand-mark { width: 42px; height: 42px; display: block; border-radius: 12px; flex-shrink: 0; }
+img.brand-mark { background: none; object-fit: cover; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
 .brand-text strong { font-size: 14px; letter-spacing: .04em; }
 .brand-text em { font-style: normal; font-size: 11px; letter-spacing: .18em; color: var(--accent); font-weight: 700; }
